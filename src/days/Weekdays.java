@@ -10,34 +10,42 @@ package days;
  */
 public class Weekdays 
 {
-  public void nameOfDay(String code)
-     {
-    switch(code.toUpperCase())
-      {
-      case "ONE":
-        System.out.println("Monday");
-        break;
-      case "TWO":
-        System.out.println("Tuesday");
-        break;
-      case "THREE":
-        System.out.println("Wednesday");
-        break;
-      case "FOUR":
-        System.out.println("Thursday");
-        break;
-      case "FIVE":
-        System.out.println("Friday");
-        break;
-      case "SIX":
-        System.out.println("Saturday");
-        break;
-      case "SEVEN":
-        System.out.println("Sunday");
-        break;
+    public enum Day {
+        ONE("Monday"),
+        TWO("Tuesday"),
+        THREE("Wednesday"),
+        FOUR("Thursday"),
+        FIVE("Friday"),
+        SIX("Saturday"),
+        SEVEN("Sunday");
+        
+        private final String name;
+        
+        private Day(String name) {
+            this.name = name;
+        }
+        
+        public String getName() {
+            return name;
+        }
+    }
+
+  
+    public void nameOfDay(Day day) {
+        System.out.println(day.getName());
     }
   
+    public static void main(String[] args) {
+        Weekdays weekdays = new Weekdays();
+        weekdays.nameOfDay(Weekdays.Day.ONE);       
+        weekdays.nameOfDay(Weekdays.Day.TWO);       
+        weekdays.nameOfDay(Weekdays.Day.THREE);
+        weekdays.nameOfDay(Weekdays.Day.FOUR);       
+        weekdays.nameOfDay(Weekdays.Day.FIVE);       
+        weekdays.nameOfDay(Weekdays.Day.SIX);
+        weekdays.nameOfDay(Weekdays.Day.SEVEN);
+    }
 }
-}
+
 
 
